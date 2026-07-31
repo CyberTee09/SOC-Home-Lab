@@ -1,0 +1,92 @@
+# SOC-Home-Lab-Splunk-Authentication-Detection
+
+## Project Overview
+
+This project demonstrates the creation of a Security Operations Center (SOC) home lab using Splunk Enterprise to monitor Linux authentication events. The lab was designed to simulate real-world security monitoring by using Metasploitable to generate authentication-related activity. These events were forwarded from an Ubuntu system running the Splunk Universal Forwarder to Splunk Enterprise, where they were indexed, searched, and used to create detection alerts for failed authentication attempts.
+
+## Objectives
+
+- Build a beginner SOC home lab using Splunk Enterprise.
+- Configure Ubuntu as a log source with the Splunk Universal Forwarder.
+- Generate authentication events using Metasploitable.
+- Forward Linux authentication logs to Splunk.
+- Detect failed authentication attempts.
+- Create and validate a Splunk alert for authentication failures.
+
+## Lab Environment
+
+| Component | Description |
+|----------|-------------|
+| SIEM | Splunk Enterprise |
+| Log Source | Ubuntu Linux |
+| Attack Simulation | Metasploitable |
+| Log Forwarder | Splunk Universal Forwarder |
+| Log Type | Linux Authentication Logs (`/var/log/auth.log`) |
+| Detection | Failed Authentication Attempts |
+
+## Tools Used
+
+- Splunk Enterprise
+- Splunk Universal Forwarder
+- Ubuntu Linux
+- Metasploitable
+- VirtualBox
+- Linux Terminal
+
+## Detection Query
+
+```spl
+index=* sourcetype=syslog "authentication failure"
+```
+
+## Alert Configuration
+
+- **Alert Name:** Linux Authentication Failure
+- **Alert Type:** Scheduled
+- **Trigger Condition:** Number of results is greater than 2
+- **Severity:** Medium
+- **Purpose:** Detect repeated failed Linux authentication attempts.
+
+## Validation
+
+To validate the detection, failed login attempts were generated in the lab environment. Splunk successfully ingested the logs from Ubuntu through the Splunk Universal Forwarder and generated alerts when the configured threshold was met.
+
+## Skills Demonstrated
+
+- SIEM Administration
+- Linux Log Analysis
+- Log Forwarding
+- Alert Creation
+- Security Monitoring
+- SOC Fundamentals
+- Incident Detection
+
+## Screenshots
+
+The screenshots included in this repository demonstrate:
+
+## Screenshots
+
+The screenshots included in this repository demonstrate the following stages of the project:
+
+- Splunk Enterprise installation
+- Splunk Universal Forwarder configuration
+- Metasploitable generating authentication events
+- Linux authentication logs received in Splunk
+- Search query used for detection
+- Alert configuration
+- Alert successfully triggered
+- Alert details and validation
+
+
+## Conclusion
+
+This project demonstrates the process of building a basic SOC home lab using Splunk Enterprise. Authentication events generated from Metasploitable were forwarded to Splunk through the Universal Forwarder, where they were indexed, searched, and used to create a detection alert. The lab provided hands-on experience with log collection, SIEM monitoring, event analysis, and alert creation, closely reflecting the workflow of a Tier 1 SOC analyst.
+
+## Author
+
+**Oluwatobi Akinrelere**
+
+Aspiring SOC Analyst | Cybersecurity Student
+
+GitHub: 
